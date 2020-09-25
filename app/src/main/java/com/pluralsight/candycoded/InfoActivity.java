@@ -3,7 +3,7 @@ package com.pluralsight.candycoded;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,7 +18,7 @@ public class InfoActivity extends AppCompatActivity {
 
         Uri uri = Uri.parse("android.resource://com.codeschool.candycoded/" + R.drawable.store_front);
         ImageView candyStoreImageView = (ImageView)findViewById(R.id.image_view_candy_store);
-        Picasso.get().                      //with(this).
+        Picasso.with(this).
                 load(uri).
                 into(candyStoreImageView);
 
@@ -41,9 +41,8 @@ public class InfoActivity extends AppCompatActivity {
     // TODO - Task 3 - Launch the Phone Activity
     // ***
     public void createPhoneIntent(View view) {
-      Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
-      phoneIntent.setData(Uri.parse("tel:0123456789"));
-      startActivity(phoneIntent);
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+        phoneIntent.setData(Uri.parse("tel:0123456789"));
+        startActivity(phoneIntent);
     }
-
 }
